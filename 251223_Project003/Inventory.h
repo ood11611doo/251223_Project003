@@ -15,7 +15,10 @@ class Inventory {
  public:
   explicit Inventory(int capacity = 10);
   Inventory(const Inventory<T>& original);
-  ~Inventory() { delete[] pItems_; }
+  ~Inventory() {
+    delete[] pItems_;
+    pItems_ = nullptr;
+  }
 
   void Assign(const Inventory<T>& other);
   void AddItem(const T& item);
